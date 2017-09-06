@@ -6,9 +6,141 @@ html
     link(rel="stylesheet" href="styles/main.css")
 
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js")
 
     script.
+      var speed = 600;
+      var ease = 'easeOutExpo';
+
       $(document).ready(function(){
-        // do a bunch of 2009 things here
+
+        ///////////////////////////////
+        //- Intro page
+
+        $('.page').not('#intro').css('left','375px');
+
+        $('#btn-start').click(function(){
+          $('#intro').animate({"left":"-375px"}, speed, ease)
+          $('#doc-select').animate({"left":"0px"}, speed, ease)
+        });
+
+        ///////////////////////////////
+        //- Pick docs page
+
+        //- Show more doc types
+        $('#show-docs').click(function(){
+          $(this).fadeOut();
+          $('#more-docs').slideDown();
+        });
+
+        //- Select a doc type
+        $('#doc-select .radio-card').click(function(){
+          // remove existing selections
+          $('#doc-select .radio-card--selected').removeClass('radio-card--selected');
+
+          // add current selection
+          $(this).addClass('radio-card--selected');
+
+          // remove block on continue button
+          $('#docs-continue').removeClass('is-disabled');
+        });
+
+        //-  continue w/ selected doc
+        $('#docs-continue').click(function(){
+          if( $(this).hasClass('is-disabled') ){
+            alert('Select a document to continue.')
+          } else {
+            $('.content').scrollTop(0);
+            $('#capture')
+              .css({'top':'667px', 'left':'0px'})
+              .animate({"top":"0px"}, speed * 0.75, ease);
+          }
+        });
+        ///////////////////////////////
+        //- capture
+        $('#modal-dismiss').click(function(){
+          $('#capture .modal').remove();
+        });
+
+
       });
   body
+    .phone-mock
+      .head-bar
+        .system
+        .header
+      .content
+        .page.pad-md(id="intro")
+          .h3
+            strong Instructions
+          p Before you can raise your send limit, federal regulations require Remitly to prove your identity.
+
+          p We'll walk you through this process, which typically takes about 10 minutes. If everything looks good, approval is instant and automatic.
+
+          .btn.btn--success.btn--block(id="btn-start")
+            | Get Started
+        .page.pad-md(id="doc-select")
+          .h3
+            strong Documents
+
+          p Choose one of these documents to submit
+
+          .radio-card
+            .radio-card__radio
+              .radio-card__radio-dot
+            .radio-card__content
+              h4 Driver's License
+              p &#9733; Fastest verification
+          .radio-card
+            .radio-card__radio
+              .radio-card__radio-dot
+            .radio-card__content
+              h4 Passport
+          .radio-card
+            .radio-card__radio
+              .radio-card__radio-dot
+            .radio-card__content
+              h4 Military I.D.
+          .radio-card
+            .radio-card__radio
+              .radio-card__radio-dot
+            .radio-card__content
+              h4 Matricular Consular
+
+          .hidden(id="more-docs")
+            .radio-card
+              .radio-card__radio
+                .radio-card__radio-dot
+              .radio-card__content
+                h4 Even
+            .radio-card
+              .radio-card__radio
+                .radio-card__radio-dot
+              .radio-card__content
+                h4 More
+            .radio-card
+              .radio-card__radio
+                .radio-card__radio-dot
+              .radio-card__content
+                h4 Documents
+
+          .btn.btn--blank.btn--subdued.btn--block(id="show-docs")
+            | Use something else
+
+          br
+          br
+
+          .btn.btn--success.btn--block.is-disabled(id="docs-continue")
+            | Continue
+        .page.pad-md.bg-color-brand-gray-15(id="capture")
+          .modal
+            h4.h4
+              strong Document capture
+            p Take a photo of the front and back of your Driver's License
+            p Please make sure that
+              
+              li Text and images are in focus
+              li All 4 corners are visible
+              li Nothing is blocking the document (fingers, etc)
+            a.btn.btn--success.btn--block(id="modal-dismiss") Okay
+
