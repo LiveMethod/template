@@ -22,11 +22,11 @@ html
       $(document).ready(function(){
         // less.modifyVars({ blue1 : 'red' })
         var targets = [
-          {'name': 'blue1', 'color' : '#2d6ca5'},
+          {'name': 'blue1', 'color' : '#226ba4'},
           {'name': 'blue2', 'color' : '#3E7EB8'},
           {'name': 'blue3', 'color' : '#00A7CF'},
           {'name': 'green', 'color' : '#39B885'},
-          {'name': 'midnight', 'color' : '#212E61'},
+          {'name': 'midnight', 'color' : '#1F284A'},
           {'name': 'red', 'color' : '#ff5c52'}
         ];
 
@@ -62,12 +62,12 @@ html
             console.log(data);
             less.modifyVars(data);
           });
-          $('.controls').append(d);
+          $('.controls .content-card').append(d);
         });
       });
   body
     .row
-      .col-sm-3.controls.bg-color-gray-1
+      .col-sm-3.controls.bg-color-gray-1.pad-md
         .content-card
           h4.h4
             strong Color Controls
@@ -126,6 +126,27 @@ html
             .icon
             .title Title
             p This is text about how great remitly is!
+        .row
+          .col-sm-4.bg--midnight.pad-sm
+            .btn.btn--block.btn--success Button
+          .col-sm-4.bg--blue1.pad-sm
+            .btn.btn--block.btn--success Button
+          .col-sm-4.bg--blue2.pad-sm
+            .btn.btn--block.btn--success Button
+        .row
+          .col-sm-4.bg--midnight.pad-sm
+            .btn.btn--block.btn--info Button
+          .col-sm-4.bg--blue1.pad-sm
+            .btn.btn--block.btn--info Button
+          .col-sm-4.bg--blue2.pad-sm
+            .btn.btn--block.btn--info Button
+        .row
+          .col-sm-4.bg--midnight.pad-sm
+            .btn.btn--block.btn--dark Button
+          .col-sm-4.bg--blue1.pad-sm
+            .btn.btn--block.btn--dark Button
+          .col-sm-4.bg--blue2.pad-sm
+            .btn.btn--block.btn--dark Button
       .col-sm-4
         .row.headBar &nbsp;
         .narwhal.row
