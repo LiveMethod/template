@@ -20,51 +20,57 @@ html
       };
 
       $(document).ready(function(){
-        // do a bunch of 2009 things here
         // less.modifyVars({ blue1 : 'red' })
+        var targets = [
+          {'name': 'blue1', 'color' : '#2d6ca5'},
+          {'name': 'blue2', 'color' : '#3E7EB8'},
+          {'name': 'blue3', 'color' : '#00A7CF'},
+          {'name': 'green', 'color' : '#39B885'},
+          {'name': 'midnight', 'color' : '#212E61'},
+          {'name': 'red', 'color' : '#ff5c52'}
+        ];
+
+        $.each(targets, function(i, v){
+          var name = v.name;
+          var color = v.color;
+
+          d = $('<div class="picker" data-target="' + name + '"></div>');
+          d.append('<label for=" ' + name +' "> ' + name + '</label><br>');
+          d.append('<input id="color" type="color" value="' + color + '"/>');
+          d.append('<input id="text" type="text" name=" '+ name +'" value="' + color + '"/>');
+          d.append('<hr>');
+
+          d.change(function(event){
+            color = $(event.target).val();
+            parent = $(event.target).parent();
+            target = parent.attr('data-target');
+            parent.find('#text').val(color);
+            console.log(target, color);
+            //- var lessK = String(target);
+            //- var lessV = String(color);
+            var data = {};
+            
+            $.each(targets, function(r, j){
+              //- for each color
+              //- find hte div with that as a data attribute
+              var n = j.name;
+              var c = $('.picker[data-target="' + n + '"] #color').val();
+              console.log(c);
+              //- find the color inside of that
+              data[n] = c;
+            });
+            console.log(data);
+            less.modifyVars(data);
+          });
+          $('.controls').append(d);
+        });
       });
   body
     .row
-      .col-sm-3
-        h1 UI Here
-
-        //- https://codepen.io/apexskier/pen/GMQWdV
-
-        p Midnight        
-        input(type="color")
-        input(type="text")
-
-        hr
-
-        p Hero Blue Dark
-        input(type="color")
-        input(type="text")
-
-        hr
-
-        p Hero Blue Light
-        input(type="color")
-        input(type="text")
-
-        hr
-
-        p UI Blue
-        input(type="color")
-        input(type="text")
-
-        hr
-
-        p Green
-        input(type="color")
-        input(type="text")
-
-        hr
-
-        p Red
-        input(type="color")
-        input(type="text")
-
-        hr
+      .col-sm-3.controls.bg-color-gray-1
+        .content-card
+          h4.h4
+            strong Color Controls
 
       .col-sm-5
         .row.headBar &nbsp;
@@ -77,7 +83,7 @@ html
             .h2
               strong Great rates!
             .h4 Refacil, Rerapido, Reseguro!
-            img(src="img/plane.png")
+            img(src="img/plane.png" width="100%")
           .col-sm-6
             .content-card
               h4.h4
