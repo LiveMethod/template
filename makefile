@@ -13,6 +13,7 @@ build:
 	cp -r ./src/fonts ./dist
 	cp -r ./src/img ./dist
 	cp -r ./src/js ./dist
+	cp -r ./src/styles ./dist
 
 # Delete static files
 clean:

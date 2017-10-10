@@ -3,12 +3,152 @@ html
   head
     meta(charset="UTF-8")
     title Internet Website 2001
-    link(rel="stylesheet" href="styles/main.css")
+    link(rel="stylesheet/less" type="text/css" href="styles/main.less")
 
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
 
     script.
+      var less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: ":/a.com/"
+      };
+
       $(document).ready(function(){
         // do a bunch of 2009 things here
+        // less.modifyVars({ blue1 : 'red' })
       });
   body
+    .row
+      .col-sm-3
+        h1 UI Here
+
+        //- https://codepen.io/apexskier/pen/GMQWdV
+
+        p Midnight        
+        input(type="color")
+        input(type="text")
+
+        hr
+
+        p Hero Blue Dark
+        input(type="color")
+        input(type="text")
+
+        hr
+
+        p Hero Blue Light
+        input(type="color")
+        input(type="text")
+
+        hr
+
+        p UI Blue
+        input(type="color")
+        input(type="text")
+
+        hr
+
+        p Green
+        input(type="color")
+        input(type="text")
+
+        hr
+
+        p Red
+        input(type="color")
+        input(type="text")
+
+        hr
+
+      .col-sm-5
+        .row.headBar &nbsp;
+        .row.topBar &nbsp;
+          .field Email
+          .field Password
+          .button Sign Up
+        .row.heroBar
+          .col-sm-6.text-color-white.text-center
+            .h2
+              strong Great rates!
+            .h4 Refacil, Rerapido, Reseguro!
+            img(src="img/plane.png")
+          .col-sm-6
+            .content-card
+              h4.h4
+                strong Pretend this is the calculator.
+              .form-group
+                label Label
+                input.form-control.form-control--dark(placeholder="input")
+
+              .form-group
+                label Label
+                input.form-control.form-control--dark(placeholder="input")
+
+              hr
+
+              .btn.btn--success.btn--block Get started
+
+        .row.tripleBar.tripleBar--dark
+          .col-sm-4
+            .icon
+            .title Title
+            p This is text about how great remitly is!
+          .col-sm-4
+            .icon
+            .title Title
+            p This is text about how great remitly is!
+          .col-sm-4
+            .icon
+            .title Title
+            p This is text about how great remitly is!
+        .row.tripleBar
+          .col-sm-4
+            .icon
+            .title Title
+            p This is text about how great remitly is!
+          .col-sm-4
+            .icon
+            .title Title
+            p This is text about how great remitly is!
+          .col-sm-4
+            .icon
+            .title Title
+            p This is text about how great remitly is!
+      .col-sm-4
+        .row.headBar &nbsp;
+        .narwhal.row
+          .col-sm-4.ml-sm-auto
+            p x
+          .col-sm-6.content-card.mr-sm-auto
+            h4.h4
+              strong Page Title
+
+            .form-group
+              label Label
+              input.form-control.form-control--dark(placeholder="input")
+
+            .form-group.form-group--info
+              label Label
+              input.form-control.form-control--dark(placeholder="input")
+
+            .form-group.form-group--danger
+              label Label
+              input.form-control.form-control--dark(placeholder="input")
+              span.help-block Nice one, Einstein!
+
+            hr
+
+            .btn.btn--info.btn--blank Back
+            .btn.btn--info.pull-right Continue
+
+            hr
+
+            .btn.btn--success.btn--block Send Money
+
+    script(src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js")
