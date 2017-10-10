@@ -24,10 +24,12 @@ html
         var targets = [
           {'name': 'blue1', 'color' : '#226ba4'},
           {'name': 'blue2', 'color' : '#3E7EB8'},
-          {'name': 'blue3', 'color' : '#00A7CF'},
+          {'name': 'blue3', 'color' : '#59ACFF'},
+          //- {'name': 'blue3', 'color' : '#00A7CF'},
           {'name': 'green', 'color' : '#39B885'},
           {'name': 'midnight', 'color' : '#1F284A'},
-          {'name': 'red', 'color' : '#ff5c52'}
+          {'name': 'red', 'color' : '#ff5c52'},
+          {'name': 'orange', 'color' : '#FFBA70'}
         ];
 
         $.each(targets, function(i, v){
@@ -37,7 +39,7 @@ html
           d = $('<div class="picker" data-target="' + name + '"></div>');
           d.append('<label for=" ' + name +' "> ' + name + '</label><br>');
           d.append('<input id="color" type="color" value="' + color + '"/>');
-          d.append('<input id="text" type="text" name=" '+ name +'" value="' + color + '"/>');
+          //- d.append('<input id="text" type="text" name=" '+ name +'" value="' + color + '"/>');
           d.append('<hr>');
 
           d.change(function(event){
@@ -46,17 +48,15 @@ html
             target = parent.attr('data-target');
             parent.find('#text').val(color);
             console.log(target, color);
-            //- var lessK = String(target);
-            //- var lessV = String(color);
             var data = {};
             
+            //- for each color
             $.each(targets, function(r, j){
-              //- for each color
               //- find hte div with that as a data attribute
               var n = j.name;
+              //- find the color inside of that
               var c = $('.picker[data-target="' + n + '"] #color').val();
               console.log(c);
-              //- find the color inside of that
               data[n] = c;
             });
             console.log(data);
@@ -67,115 +67,152 @@ html
       });
   body
     .row
-      .col-sm-3.controls.bg-color-gray-1.pad-md
+      .col-2.controls.bg-color-gray-1.pad-md
         .content-card
           h4.h4
             strong Color Controls
+      .col-10
+        .col-sm-7
+          .row.headBar &nbsp;
+          .row.topBar &nbsp;
+            .field Email
+            .field Password
+            .button Sign Up
+          .row.heroBar
+            .col-sm-6.text-color-white.text-center
+              .h2
+                strong Great rates!
+              .h4 Refacil, Rerapido, Reseguro!
+              img(src="img/plane.png" width="100%")
+            .col-sm-6
+              .content-card
+                h4.h4
+                  strong Pretend this is the calculator.
+                .form-group
+                  label Label
+                  input.form-control.form-control--dark(placeholder="input")
 
-      .col-sm-5
-        .row.headBar &nbsp;
-        .row.topBar &nbsp;
-          .field Email
-          .field Password
-          .button Sign Up
-        .row.heroBar
-          .col-sm-6.text-color-white.text-center
-            .h2
-              strong Great rates!
-            .h4 Refacil, Rerapido, Reseguro!
-            img(src="img/plane.png" width="100%")
-          .col-sm-6
-            .content-card
+                .form-group
+                  label Label
+                  input.form-control.form-control--dark(placeholder="input")
+
+                hr
+
+                .btn.btn--success.btn--block Get started
+
+          .row.tripleBar.tripleBar--dark
+            .col-sm-4
+              .icon
+              .title Title
+              p This is text about how great remitly is! It contains 
+                a(href="") a colored link
+                |  as well.
+            .col-sm-4
+              .icon
+              .title Title
+              p This is text about how great remitly is! It contains 
+                a(href="") a colored link
+                |  as well.
+            .col-sm-4
+              .icon
+              .title Title
+              p This is text about how great remitly is! It contains 
+                a(href="") a colored link
+                |  as well.
+          .row.tripleBar
+            .col-sm-4
+              .icon
+              .title Title
+              p This is text about how great remitly is! It contains 
+                a(href="") a colored link
+                |  as well.
+            .col-sm-4
+              .icon
+              .title Title
+              p This is text about how great remitly is! It contains 
+                a(href="") a colored link
+                |  as well.
+            .col-sm-4
+              .icon
+              .title Title
+              p This is text about how great remitly is! It contains 
+                a(href="") a colored link
+                |  as well.
+          .row
+            .col-sm-3.bg--midnight.pad-sm
+              .btn.btn--block.btn--success Button
+            .col-sm-3.bg--blue1.pad-sm
+              .btn.btn--block.btn--success Button
+            .col-sm-3.bg--blue2.pad-sm
+              .btn.btn--block.btn--success Button
+            .col-sm-3.bg-color-white.pad-sm
+              .btn.btn--block.btn--success Button
+          .row
+            .col-sm-3.bg--midnight.pad-sm
+              .btn.btn--block.btn--info Button
+            .col-sm-3.bg--blue1.pad-sm
+              .btn.btn--block.btn--info Button
+            .col-sm-3.bg--blue2.pad-sm
+              .btn.btn--block.btn--info Button
+            .col-sm-3.bg-color-white.pad-sm
+              .btn.btn--block.btn--info Button
+          .row
+            .col-sm-3.bg--midnight.pad-sm
+              .btn.btn--block.btn--dark Button
+            .col-sm-3.bg--blue1.pad-sm
+              .btn.btn--block.btn--dark Button
+            .col-sm-3.bg--blue2.pad-sm
+              .btn.btn--block.btn--dark Button
+            .col-sm-3.bg-color-white.pad-sm
+              .btn.btn--block.btn--dark Button
+
+          .row
+            .col-sm-3.bg--midnight.pad-sm
+              .btn.btn--block.btn--warning Button
+            .col-sm-3.bg--blue1.pad-sm
+              .btn.btn--block.btn--warning Button
+            .col-sm-3.bg--blue2.pad-sm
+              .btn.btn--block.btn--warning Button
+            .col-sm-3.bg-color-white.pad-sm
+              .btn.btn--block.btn--warning Button
+
+          .row
+            .col-sm-3.bg--midnight.pad-sm
+              .btn.btn--block.btn--danger Button
+            .col-sm-3.bg--blue1.pad-sm
+              .btn.btn--block.btn--danger Button
+            .col-sm-3.bg--blue2.pad-sm
+              .btn.btn--block.btn--danger Button
+            .col-sm-3.bg-color-white.pad-sm
+              .btn.btn--block.btn--danger Button
+
+        .col-sm-5.pad-md
+          .row.headBar &nbsp;
+          .narwhal.row
+            .col.content-card
               h4.h4
-                strong Pretend this is the calculator.
-              .form-group
-                label Label
-                input.form-control.form-control--dark(placeholder="input")
+                strong Page Title
 
               .form-group
                 label Label
                 input.form-control.form-control--dark(placeholder="input")
+
+              .form-group.form-group--info
+                label Label
+                input.form-control.form-control--dark(placeholder="input")
+
+              .form-group.form-group--danger
+                label Label
+                input.form-control.form-control--dark(placeholder="input")
+                span.help-block Nice one, Einstein!
 
               hr
 
-              .btn.btn--success.btn--block Get started
+              .btn.btn--info.btn--blank Back
+              .btn.btn--info.pull-right Continue
 
-        .row.tripleBar.tripleBar--dark
-          .col-sm-4
-            .icon
-            .title Title
-            p This is text about how great remitly is!
-          .col-sm-4
-            .icon
-            .title Title
-            p This is text about how great remitly is!
-          .col-sm-4
-            .icon
-            .title Title
-            p This is text about how great remitly is!
-        .row.tripleBar
-          .col-sm-4
-            .icon
-            .title Title
-            p This is text about how great remitly is!
-          .col-sm-4
-            .icon
-            .title Title
-            p This is text about how great remitly is!
-          .col-sm-4
-            .icon
-            .title Title
-            p This is text about how great remitly is!
-        .row
-          .col-sm-4.bg--midnight.pad-sm
-            .btn.btn--block.btn--success Button
-          .col-sm-4.bg--blue1.pad-sm
-            .btn.btn--block.btn--success Button
-          .col-sm-4.bg--blue2.pad-sm
-            .btn.btn--block.btn--success Button
-        .row
-          .col-sm-4.bg--midnight.pad-sm
-            .btn.btn--block.btn--info Button
-          .col-sm-4.bg--blue1.pad-sm
-            .btn.btn--block.btn--info Button
-          .col-sm-4.bg--blue2.pad-sm
-            .btn.btn--block.btn--info Button
-        .row
-          .col-sm-4.bg--midnight.pad-sm
-            .btn.btn--block.btn--dark Button
-          .col-sm-4.bg--blue1.pad-sm
-            .btn.btn--block.btn--dark Button
-          .col-sm-4.bg--blue2.pad-sm
-            .btn.btn--block.btn--dark Button
-      .col-sm-4
-        .row.headBar &nbsp;
-        .narwhal.row
-          .col-sm-4.ml-sm-auto
-            p x
-          .col-sm-6.content-card.mr-sm-auto
-            h4.h4
-              strong Page Title
+              hr
 
-            .form-group
-              label Label
-              input.form-control.form-control--dark(placeholder="input")
-
-            .form-group.form-group--info
-              label Label
-              input.form-control.form-control--dark(placeholder="input")
-
-            .form-group.form-group--danger
-              label Label
-              input.form-control.form-control--dark(placeholder="input")
-              span.help-block Nice one, Einstein!
-
-            hr
-
-            .btn.btn--info.btn--blank Back
-            .btn.btn--info.pull-right Continue
-
-            hr
-
-            .btn.btn--success.btn--block Send Money
+              .btn.btn--success.btn--block Send Money
 
     script(src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js")

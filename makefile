@@ -1,25 +1,29 @@
 # Generate static files
 build:
 	# make the dist dir if it doesn't exist
-	mkdir -p dist
+	mkdir -p colorpicker
 	
 	# Convert pug to html
-	pug ./src --out ./dist
+	pug ./src --out ./colorpicker
 
 	# Convert less to css
-	lessc ./src/styles/main.less ./dist/styles/main.css
+	lessc ./src/styles/main.less ./colorpicker/styles/main.css
 
 	# move static assets
-	cp -r ./src/fonts ./dist
-	cp -r ./src/img ./dist
-	cp -r ./src/js ./dist
-	cp -r ./src/styles ./dist
+	cp -r ./src/fonts ./colorpicker
+	cp -r ./src/img ./colorpicker
+	cp -r ./src/js ./colorpicker
+	cp -r ./src/styles ./colorpicker
 
 # Delete static files
 clean:
-	rm -rf ./dist
+	rm -rf ./colorpicker
 
 # Build everything and serve it locally
 dev: build
-	cd ./dist; \
+	cd ./colorpicker; \
 		python -m SimpleHTTPServer 8055
+
+# Build everything and rsync it to brand.remitly.internal
+deploy: build
+	rsync -a colorpicker ubuntu@brand.remitly.internal:/var/www/brand/

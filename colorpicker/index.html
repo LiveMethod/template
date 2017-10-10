@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Internet Website 2001</title><link rel="stylesheet/less" type="text/css" href="styles/main.less"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script>var less = {
+  env: "development",
+  async: false,
+  fileAsync: false,
+  poll: 1000,
+  functions: {},
+  dumpLineNumbers: "comments",
+  relativeUrls: false,
+  rootpath: ":/a.com/"
+};
+
+$(document).ready(function(){
+  // less.modifyVars({ blue1 : 'red' })
+  var targets = [
+    {'name': 'blue1', 'color' : '#226ba4'},
+    {'name': 'blue2', 'color' : '#3E7EB8'},
+    {'name': 'blue3', 'color' : '#59ACFF'},
+    //- {'name': 'blue3', 'color' : '#00A7CF'},
+    {'name': 'green', 'color' : '#39B885'},
+    {'name': 'midnight', 'color' : '#1F284A'},
+    {'name': 'red', 'color' : '#ff5c52'},
+    {'name': 'orange', 'color' : '#FFBA70'}
+  ];
+
+  $.each(targets, function(i, v){
+    var name = v.name;
+    var color = v.color;
+
+    d = $('<div class="picker" data-target="' + name + '"></div>');
+    d.append('<label for=" ' + name +' "> ' + name + '</label><br>');
+    d.append('<input id="color" type="color" value="' + color + '"/>');
+    //- d.append('<input id="text" type="text" name=" '+ name +'" value="' + color + '"/>');
+    d.append('<hr>');
+
+    d.change(function(event){
+      color = $(event.target).val();
+      parent = $(event.target).parent();
+      target = parent.attr('data-target');
+      parent.find('#text').val(color);
+      console.log(target, color);
+      var data = {};
+      
+      //- for each color
+      $.each(targets, function(r, j){
+        //- find hte div with that as a data attribute
+        var n = j.name;
+        //- find the color inside of that
+        var c = $('.picker[data-target="' + n + '"] #color').val();
+        console.log(c);
+        data[n] = c;
+      });
+      console.log(data);
+      less.modifyVars(data);
+    });
+    $('.controls .content-card').append(d);
+  });
+});</script></head><body><div class="row"><div class="col-2 controls bg-color-gray-1 pad-md"><div class="content-card"><h4 class="h4"><strong>Color Controls</strong></h4></div></div><div class="col-10"><div class="col-sm-7"><div class="row headBar">&nbsp;</div><div class="row topBar">&nbsp;<div class="field">Email</div><div class="field">Password</div><div class="button">Sign Up</div></div><div class="row heroBar"><div class="col-sm-6 text-color-white text-center"><div class="h2"><strong>Great rates!</strong></div><div class="h4">Refacil, Rerapido, Reseguro!</div><img src="img/plane.png" width="100%"></div><div class="col-sm-6"><div class="content-card"><h4 class="h4"><strong>Pretend this is the calculator.</strong></h4><div class="form-group"><label>Label</label><input class="form-control form-control--dark" placeholder="input"></div><div class="form-group"><label>Label</label><input class="form-control form-control--dark" placeholder="input"></div><hr><div class="btn btn--success btn--block">Get started</div></div></div></div><div class="row tripleBar tripleBar--dark"><div class="col-sm-4"><div class="icon"></div><div class="title">Title</div><p>This is text about how great remitly is! It contains <a href="">a colored link</a> as well.</p></div><div class="col-sm-4"><div class="icon"></div><div class="title">Title</div><p>This is text about how great remitly is! It contains <a href="">a colored link</a> as well.</p></div><div class="col-sm-4"><div class="icon"></div><div class="title">Title</div><p>This is text about how great remitly is! It contains <a href="">a colored link</a> as well.</p></div></div><div class="row tripleBar"><div class="col-sm-4"><div class="icon"></div><div class="title">Title</div><p>This is text about how great remitly is! It contains <a href="">a colored link</a> as well.</p></div><div class="col-sm-4"><div class="icon"></div><div class="title">Title</div><p>This is text about how great remitly is! It contains <a href="">a colored link</a> as well.</p></div><div class="col-sm-4"><div class="icon"></div><div class="title">Title</div><p>This is text about how great remitly is! It contains <a href="">a colored link</a> as well.</p></div></div><div class="row"><div class="col-sm-3 bg--midnight pad-sm"><div class="btn btn--block btn--success">Button</div></div><div class="col-sm-3 bg--blue1 pad-sm"><div class="btn btn--block btn--success">Button</div></div><div class="col-sm-3 bg--blue2 pad-sm"><div class="btn btn--block btn--success">Button</div></div><div class="col-sm-3 bg-color-white pad-sm"><div class="btn btn--block btn--success">Button</div></div></div><div class="row"><div class="col-sm-3 bg--midnight pad-sm"><div class="btn btn--block btn--info">Button</div></div><div class="col-sm-3 bg--blue1 pad-sm"><div class="btn btn--block btn--info">Button</div></div><div class="col-sm-3 bg--blue2 pad-sm"><div class="btn btn--block btn--info">Button</div></div><div class="col-sm-3 bg-color-white pad-sm"><div class="btn btn--block btn--info">Button</div></div></div><div class="row"><div class="col-sm-3 bg--midnight pad-sm"><div class="btn btn--block btn--dark">Button</div></div><div class="col-sm-3 bg--blue1 pad-sm"><div class="btn btn--block btn--dark">Button</div></div><div class="col-sm-3 bg--blue2 pad-sm"><div class="btn btn--block btn--dark">Button</div></div><div class="col-sm-3 bg-color-white pad-sm"><div class="btn btn--block btn--dark">Button</div></div></div><div class="row"><div class="col-sm-3 bg--midnight pad-sm"><div class="btn btn--block btn--warning">Button</div></div><div class="col-sm-3 bg--blue1 pad-sm"><div class="btn btn--block btn--warning">Button</div></div><div class="col-sm-3 bg--blue2 pad-sm"><div class="btn btn--block btn--warning">Button</div></div><div class="col-sm-3 bg-color-white pad-sm"><div class="btn btn--block btn--warning">Button</div></div></div><div class="row"><div class="col-sm-3 bg--midnight pad-sm"><div class="btn btn--block btn--danger">Button</div></div><div class="col-sm-3 bg--blue1 pad-sm"><div class="btn btn--block btn--danger">Button</div></div><div class="col-sm-3 bg--blue2 pad-sm"><div class="btn btn--block btn--danger">Button</div></div><div class="col-sm-3 bg-color-white pad-sm"><div class="btn btn--block btn--danger">Button</div></div></div></div><div class="col-sm-5 pad-md"><div class="row headBar">&nbsp;</div><div class="narwhal row"><div class="col content-card"><h4 class="h4"><strong>Page Title</strong></h4><div class="form-group"><label>Label</label><input class="form-control form-control--dark" placeholder="input"></div><div class="form-group form-group--info"><label>Label</label><input class="form-control form-control--dark" placeholder="input"></div><div class="form-group form-group--danger"><label>Label</label><input class="form-control form-control--dark" placeholder="input"><span class="help-block">Nice one, Einstein!</span></div><hr><div class="btn btn--info btn--blank">Back</div><div class="btn btn--info pull-right">Continue</div><hr><div class="btn btn--success btn--block">Send Money</div></div></div></div></div></div><script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script></body></html>

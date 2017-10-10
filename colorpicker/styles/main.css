@@ -1,0 +1,124 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
+@import url('http://brand.remitly.internal/styles/main.css');
+.content-card {
+  padding: 48px;
+}
+.btn {
+  font-weight: 600;
+}
+a,
+a:visited,
+a:hover {
+  color: #59ACFF;
+  font-weight: 600;
+}
+.btn--success {
+  background-color: #39B885;
+}
+.btn--info {
+  background-color: #59ACFF;
+}
+.btn--info.btn--blank {
+  color: #59ACFF;
+}
+.form-group--info input {
+  border-color: #59ACFF;
+}
+.form-group--danger input {
+  border-color: #ff5c52;
+}
+.btn--warning {
+  background-color: #FFBA70;
+}
+.btn--danger {
+  background-color: #ff5c52;
+}
+.form-group--danger .help-block {
+  color: #ff5c52;
+}
+body {
+  font-family: "Proxima Nova", Helvetica, Sans-Serif;
+}
+.headBar {
+  background-color: #ffffff;
+  width: 100%;
+  height: 60px;
+}
+.topBar {
+  background-color: #226ba4;
+  padding: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 46px;
+  text-align: left;
+}
+.topBar .field {
+  flex: 2;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  float: left;
+  margin-right: 16px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+.topBar .button {
+  flex: 1;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #39B885;
+  float: left;
+  box-sizing: border-box;
+  text-align: center;
+  color: #ffffff;
+}
+.heroBar {
+  background-color: #3E7EB8;
+  padding: 48px;
+}
+.tripleBar {
+  text-align: center;
+  padding: 64px 0;
+  background-color: #ffffff;
+}
+.tripleBar--dark {
+  background-color: #1F284A;
+  color: #ffffff;
+}
+.tripleBar .title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.tripleBar .icon {
+  border: 4px solid #59ACFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+}
+.narwhal {
+  background-color: #fafcfc;
+  padding: 48px 0;
+}
+.narwhal .content {
+  background-color: #ffffff;
+}
+.bg--midnight {
+  background-color: #1F284A;
+}
+.bg--blue1 {
+  background-color: #226ba4;
+}
+.bg--blue2 {
+  background-color: #3E7EB8;
+}
+.bg--blue3 {
+  background-color: #59ACFF;
+}
+.bg--green {
+  background-color: #39B885;
+}
+.btn--dark {
+  background-color: #1F284A;
+  color: #ffffff;
+}
